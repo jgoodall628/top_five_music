@@ -17,6 +17,12 @@
         <%= f.label :name, class: "sr-only" %><br>
         <%= f.text_field :name, class: "form-control", placeholder: "Name" %>
       </div>
+      <div class="field form-group">
+        <%= f.select(:rating, ['1', '2', '3', '4', '5'], {include_blank: 'Rating'}, class: "form-control") %>
+      </div>
+      <div class="field form-group">
+        <%= f.file_field :avatar %>
+      </div>
       <div class="actions form-group">
         <%= f.submit class: "btn btn-primary btn-lg" %>
       </div>

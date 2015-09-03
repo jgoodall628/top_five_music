@@ -1,20 +1,28 @@
 <p id="notice"><%= notice %></p>
+<p>
+  <%= link_to new_artist_path do %>
+    <span class="glyphicon glyphicon-plus"></span> Add Artist
+    <% end %>
+</p>
 <div class="row">
   <div class="col-md-12">
     <div class="well well-lg">
+      <% if @artist.avatar_file_name %>
+        <%= image_tag @artist.avatar.url(:medium), class: "img-responsive center-block img-circle" %>
+      <% end %>
       <h2><%= @artist.name %></h2>
+      <h4><% @artist.rating.times do %>
+          <span class="glyphicon glyphicon-star"></span>
+          <% end %>
+      </h4>
       <% @artist.songs.each do |song| %>
       <p>
-        <%= song.name %>
+        <%= link_to song.name, song %>
       </p>
       <% end %>
     </div>
   </div>
 </div>
-<p>
-  <strong>Name:</strong>
-  <%= @artist.name %>
-</p>
 
 <%= link_to 'Edit', edit_artist_path(@artist) %> |
 <%= link_to 'Back', artists_path %>

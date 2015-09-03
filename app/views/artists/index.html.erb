@@ -9,18 +9,30 @@
 <div class="row">
   <% @artists.each do |artist| %>
     <div class="col-md-6">
-      <div class="well">
-        <h1>
-          <%= link_to artist.name, artist %>
-        </h1>
-        <p>
-          <%= link_to edit_artist_path(artist) do %>
-          <span class="glyphicon glyphicon-edit"></span>
+      <div class="well well-lg media">
+        <div class="media-left media-middle">
+          <% if artist.avatar_file_name %>
+            <%= image_tag artist.avatar.url(:thumb), class: "media-object img-circle" %>
           <% end %>
-          <%= link_to artist, method: :delete, data: { confirm: 'Are you sure?' } do %>
-          <span class="glyphicon glyphicon-trash"></span>
-          <% end %>
-        </p>
+        </div>
+        <div class="media-body">
+          <h1>
+            <%= link_to artist.name, artist %>
+          </h1>
+          <h4><% artist.rating.times do %>
+              <span class="glyphicon glyphicon-star"></span>
+              <% end %>
+          </h4>
+          <p>
+            <%= link_to edit_artist_path(artist) do %>
+            <span class="glyphicon glyphicon-edit"></span>
+            <% end %>
+            <%= link_to artist, method: :delete, data: { confirm: 'Are you sure?' } do %>
+            <span class="glyphicon glyphicon-trash"></span>
+            <% end %>
+          </p>
+        </div>
+
       </div>
 
     </div>

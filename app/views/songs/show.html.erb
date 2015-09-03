@@ -1,16 +1,46 @@
 <p id="notice"><%= notice %></p>
-
+<p>
+  <%= link_to new_song_path do %>
+    <span class="glyphicon glyphicon-plus"></span> Add Song
+    <% end %>
+</p>
 <div class="row">
   <div class="col-md-12">
     <div class="well well-lg">
       <h2><%= @song.name %></h2>
       <h3>by
-      <%= @song.artist.name %>
+      <%= link_to @song.artist.name, @song.artist %>
     </h3>
       <h4><% @song.rating.times do %>
           <span class="glyphicon glyphicon-star"></span>
           <% end %>
       </h4>
+          <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+      View Music Video
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade bs-example-modal-lg" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel"><%= @song.name %> by <%= @song.artist.name %></h4>
+          </div>
+          <div class="modal-body">
+          <div class="embed-responsive embed-responsive-16by9">
+            <iframe class="embed-responsive-item" src= <%= @song.url %> </iframe>
+          </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     </div>
   </div>
 </div>

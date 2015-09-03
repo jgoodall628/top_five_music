@@ -193,3 +193,13 @@
 .glyphicon-star {
   color: yellow;
 }
+.modal-header {
+  background: #333;
+  border-color: #000000;
+}
+.modal-body {
+  background: #333;
+}
+.close {
+  color: white;
+}
