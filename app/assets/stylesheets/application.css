@@ -47,9 +47,11 @@
  html,
  body {
    height: 100%;
-   background-color: #333;
+   background: url('/assets/music-bg.jpeg') no-repeat;
+   background-size: cover;
  }
  body {
+
    color: #fff;
    text-align: center;
    text-shadow: 0 1px 3px rgba(0,0,0,.5);
@@ -188,7 +190,7 @@
    color: #000;
  }
 .well {
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.7);
 }
 .glyphicon-star {
   color: yellow;
