@@ -20,7 +20,7 @@ class SongsController < ApplicationController
 
   # GET /songs/1/edit
   def edit
-    @artist = Artist.all
+    @artists = Artist.all
   end
 
   # POST /songs

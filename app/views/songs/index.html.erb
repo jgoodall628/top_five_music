@@ -11,40 +11,22 @@
   <div class="col-md-6">
     <div class="well">
       <h2><%= link_to song.name, song %><h2>
-      <h4><%= song.rating %></h4>
+      <h3>by <%= song.artist.name %></h3>
+      <h4><% song.rating.to_i.times do %>
+          <span class="glyphicon glyphicon-star"></span>
+          <% end %>
+      </h4>
+      <hr/>
       <p>
-        <%= link_to 'Edit', edit_song_path(song) %>
-        <%= link_to 'Destroy', song, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <%= link_to edit_song_path(song) do %>
+        <span class="glyphicon glyphicon-edit"></span>
+        <% end %>
+        <%= link_to song, method: :delete, data: { confirm: 'Are you sure?' } do %>
+        <span class="glyphicon glyphicon-trash"></span>
+        <% end %>
       </p>
 
     </div>
   </div>
   <% end %>
 </div>
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Rating</th>
-      <th>Artist</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @songs.each do |song| %>
-      <tr>
-        <td><%= song.name %></td>
-        <td><%= song.rating %></td>
-        <td><%= song.artist %></td>
-        <td><%= link_to 'Show', song %></td>
-        <td><%= link_to 'Edit', edit_song_path(song) %></td>
-        <td><%= link_to 'Destroy', song, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Song', new_song_path %>
