@@ -16,12 +16,10 @@
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :rating %><br>
-    <%= f.text_field :rating %>
+    <%= f.select(:artist_id, @artists.collect {|a| [a.name, a.id]}, {include_blank: 'Please select an artist'}) %>
   </div>
   <div class="field">
-    <%= f.label :artist_id %><br>
-    <%= f.text_field :artist_id %>
+    <%= f.select(:rating, ['1', '2', '3', '4', '5'], {include_blank: 'Rating'}) %>
   </div>
   <div class="actions">
     <%= f.submit %>
