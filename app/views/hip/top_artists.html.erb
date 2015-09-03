@@ -1,21 +1,24 @@
 <div class="row">
   <h2>My Top 5 Artists</h2>
   <% @artists.each do |artist| %>
-  <div class="well well-lg media">
-    <div class="media-left media-middle">
-    <% if artist.avatar_file_name %>
-      <%= image_tag artist.avatar.url(:thumb), class: "media-object img-circle" %>
-    <% end %>
-    </div>
-    <div class="media-body">
-      <h1>
-        <%= link_to artist.name, artist %>
-      </h1>
-      <h4><% artist.rating.times do %>
-          <span class="glyphicon glyphicon-star"></span>
-          <% end %>
-      </h4>
+  <div class="col-md-6">
+    <div class="well well-lg media">
+      <div class="media-left media-middle">
+      <% if artist.avatar_file_name %>
+        <%= image_tag artist.avatar.url(:thumb), class: "media-object img-circle" %>
+      <% end %>
+      </div>
+      <div class="media-body">
+        <h1>
+          <%= link_to artist.name, artist %>
+        </h1>
+        <h4><% artist.rating.times do %>
+            <span class="glyphicon glyphicon-star"></span>
+            <% end %>
+        </h4>
+      </div>
     </div>
   </div>
+
 <% end %>
 </div>

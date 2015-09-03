@@ -15,7 +15,7 @@
           <span class="glyphicon glyphicon-star"></span>
           <% end %>
       </h4>
-
+      <% if @song.url != "" %>
           <!-- Button trigger modal -->
       <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
         View Music Video
@@ -32,16 +32,13 @@
             </div>
             <div class="modal-body">
               <div class="embed-responsive embed-responsive-16by9">
-                <iframe class="embed-responsive-item" src= <%= @song.url %> </iframe>
+                <iframe class="embed-responsive-item" src= <%= @song.url %> allowfullscreen> </iframe>
               </div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
             </div>
           </div>
         </div>
       </div>
+      <% end %>
 
     </div>
 
